@@ -40,6 +40,11 @@ public class GridSystem
     {
         return new Vector3(gridPosition.x, 0, gridPosition.z) * cellSize;
     }
+    
+    public Vector3 GetWorldPositionWithConstY(GridPosition gridPosition, float constY)
+    {
+        return new Vector3(gridPosition.x, constY, gridPosition.z) * cellSize;
+    }
 
     public GridPosition GetGridPosition(Vector3 worldPosition)
     {

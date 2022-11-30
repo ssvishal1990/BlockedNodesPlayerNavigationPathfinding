@@ -46,8 +46,20 @@ public class TestPathFInding : MonoBehaviour
             {
                 return;
             }
+            GridObject mousePositionGridObject = LevelGrid.Instance.GetGridObject(mouseDownPosition);
             LevelGrid.Instance.BlockGridObject(mouseDownPosition);
             GridSystemVisual.Instance.UpdateBlockedNodeVisual(mouseDownPosition);
+
+            if (path != null || path.Count != 0)
+            {
+                //check if the blocked node exists in the path
+                
+                if (path.Contains(mousePositionGridObject))
+                {
+                    // If it exists calculate a new path
+                    CalculateNewPath();
+                }
+            }
         }
     }
 

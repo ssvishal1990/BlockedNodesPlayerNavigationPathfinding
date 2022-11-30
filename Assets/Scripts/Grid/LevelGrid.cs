@@ -38,6 +38,15 @@ public class LevelGrid : MonoBehaviour
 
     public Vector3 getWorldPosition(GridPosition Pos) => gridSystem.GetWorldPosition(Pos);
 
+    /// <summary>
+    /// Have this method to manage objects which will be on certain height above the plane
+    /// this method will help in multiplane settings
+    /// </summary>
+    /// <param name="Pos"></param>
+    /// <param name="constY"></param>
+    /// <returns></returns>
+    public Vector3 getWorldPositionWithConstY(GridPosition Pos, float constY) => gridSystem.GetWorldPositionWithConstY(Pos, constY);
+
     public bool isValidGridPosition(GridPosition gridPosition) => gridSystem.isValidGridPosition(gridPosition);
 
     public int getHeight() => gridSystem.getHeight();

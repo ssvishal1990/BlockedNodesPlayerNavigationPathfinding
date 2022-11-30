@@ -26,6 +26,22 @@ public class Pathfinding
         path = new List<GridObject>();
     }
 
+    public List<GridObject> FindPath(GridObject start, GridObject end)
+    {
+        if (start == null)
+        {
+            Debug.Log("start is null");
+        }
+        if (end == null)
+        {
+            Debug.Log("end is null");
+        }
+
+
+
+        return FindPath(start.gridPosition.x, start.gridPosition.z, end.gridPosition.x, end.gridPosition.z);
+    }
+
     public List<GridObject> FindPath(int startX, int startY, int endX, int endY)
     {
         //Graph Setup
@@ -213,7 +229,7 @@ public class Pathfinding
                 path.Clear();
                 return path;
             }
-            Debug.Log($"Node : {currentNode} is connected to {currentNode.cameFromGridObject}");
+            //Debug.Log($"Node : {currentNode} is connected to {currentNode.cameFromGridObject}");
             path.Add(currentNode.cameFromGridObject);
 
             if (currentNode.cameFromGridObject == startNode)
